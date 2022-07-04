@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/art_row.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_art_details.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_arts.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_image_api.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/image_row.xml" value="0.37864583333333335" />
       </map>
     </option>
   </component>
