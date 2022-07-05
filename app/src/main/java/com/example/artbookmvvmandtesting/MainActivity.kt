@@ -1,8 +1,7 @@
-package com.example.artbookmvvmandtesting.view
+package com.example.artbookmvvmandtesting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.artbookmvvmandtesting.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
