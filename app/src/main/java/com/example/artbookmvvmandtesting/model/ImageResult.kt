@@ -1,7 +1,5 @@
 package com.example.artbookmvvmandtesting.model
 
-import com.google.gson.annotations.SerializedName
-
 data class ImageResult(
     val comments: Int,
     val downloads: Int,

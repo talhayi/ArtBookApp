@@ -2,7 +2,13 @@ package com.example.artbookmvvmandtesting.dependencyinjection
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.artbookmvvmandtesting.R
 import com.example.artbookmvvmandtesting.api.RetrofitApi
+import com.example.artbookmvvmandtesting.repo.ArtRepository
+import com.example.artbookmvvmandtesting.repo.ArtRepositoryInterface
+import com.example.artbookmvvmandtesting.roomdb.ArtDao
 import com.example.artbookmvvmandtesting.roomdb.ArtDatabase
 import com.example.artbookmvvmandtesting.util.Util.BASE_URL
 import dagger.Provides
@@ -35,4 +41,16 @@ object AppModule {
             .build()
             .create(RetrofitApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(
+            RequestOptions().placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+        )
+
+    @Singleton
+    @Provides
+    fun injectNormalRepo(dao: ArtDao,api: RetrofitApi)=ArtRepository(dao,api) as ArtRepositoryInterface
 }

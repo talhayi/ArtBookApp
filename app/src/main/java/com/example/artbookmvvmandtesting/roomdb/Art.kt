@@ -1,4 +1,4 @@
-package com.example.artbookmvvmandtesting.model
+package com.example.artbookmvvmandtesting.roomdb
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,5 +10,5 @@ data class Art(
     var year: Int,
     var imageUrl : String,
     @PrimaryKey(autoGenerate = true)
-    var id: String? = null
+    var id: Int? = null
 )
