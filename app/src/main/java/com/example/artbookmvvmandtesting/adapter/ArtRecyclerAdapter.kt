@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.example.artbookmvvmandtesting.R
-import com.example.artbookmvvmandtesting.databinding.FragmentArtDetailsBinding
 import com.example.artbookmvvmandtesting.roomdb.Art
 import javax.inject.Inject
 
