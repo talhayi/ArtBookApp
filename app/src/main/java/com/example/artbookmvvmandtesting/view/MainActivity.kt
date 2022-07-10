@@ -1,8 +1,8 @@
-package com.example.artbookmvvmandtesting
+package com.example.artbookmvvmandtesting.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.artbookmvvmandtesting.view.ArtFragmentFactory
+import com.example.artbookmvvmandtesting.R
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
