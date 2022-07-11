@@ -4,9 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/art_row.xml" value="0.1331521739130435" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/art_row.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_art_details.xml" value="0.28541666666666665" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_arts.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_arts.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/fragment_image_api.xml" value="0.23233695652173914" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/ArtBookMVVMandTesting/app/src/main/res/layout/image_row.xml" value="0.23233695652173914" />
       </map>
