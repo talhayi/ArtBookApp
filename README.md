@@ -1,4 +1,4 @@
-- ## I used MVVM, Databinding
+- ## I used MVVM
 
 - ## Retrofit Library is used for network requests
 - ## Glide Library is used to display images
