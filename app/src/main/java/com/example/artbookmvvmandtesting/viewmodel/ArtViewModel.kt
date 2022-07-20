@@ -9,6 +9,8 @@ import com.example.artbookmvvmandtesting.repo.ArtRepositoryInterface
 import com.example.artbookmvvmandtesting.roomdb.Art
 import com.example.artbookmvvmandtesting.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
@@ -46,8 +48,8 @@ class ArtViewModel @Inject constructor(
     fun deleteArt(art: Art) = viewModelScope.launch {
         repository.deleteArt(art)
     }
-
-    fun insertArt(art: Art) = viewModelScope.launch {
+//CoroutineScope(Dispatchers.IO) - viewModelScope
+    fun insertArt(art: Art) =CoroutineScope(Dispatchers.IO).launch {
         repository.insertArt(art)
     }
 

@@ -27,7 +27,7 @@ class ArtDetailsFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity())[ArtViewModel::class.java]
         val binding = FragmentArtDetailsBinding.bind(view)
         fragmentBinding = binding
         subscribeToObserves()

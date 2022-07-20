@@ -38,6 +38,7 @@ class ArtFragmentTest {
         launchFragmentInHiltContainer<ArtFragment>(
             factory = fragmentFactory
         ){
+
             Navigation.setViewNavController(requireView(),navController)
         }
 
