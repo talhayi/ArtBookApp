@@ -28,6 +28,8 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class ImageApiFragmentTest {
 
+    private lateinit var viewModel: ArtViewModel
+    private lateinit var imageRecyclerAdapter: ImageRecyclerAdapter
 
     @get: Rule
     var hiltRule = HiltAndroidRule(this)
@@ -39,12 +41,12 @@ class ImageApiFragmentTest {
     lateinit var fragmentFactory: ArtFragmentFactory
 
     @Before
-    fun setup() {
+    fun setup(){
         hiltRule.inject()
     }
 
     @Test
-    fun selectImage() {
+    fun selectImage(){
 
         val navController = Mockito.mock(NavController::class.java)
         val selectedImageUrl = "talhayildirim.com"
@@ -52,20 +54,18 @@ class ImageApiFragmentTest {
 
         launchFragmentInHiltContainer<ImageApiFragment>(
             factory = fragmentFactory
-        ) {
-            Navigation.setViewNavController(requireView(), navController)
-            (this as ImageApiFragment).viewModel = testViewModel
+        ){
+            Navigation.setViewNavController(requireView(),navController)
+            viewModel = testViewModel
             imageRecyclerAdapter.images = listOf(selectedImageUrl)
         }
         Espresso.onView(withId(R.id.imageRecyclerView)).perform(
             RecyclerViewActions.actionOnItemAtPosition<ImageRecyclerAdapter.ImageViewHolder>(
-                0, click()
+                0,click()
             )
         )
         Mockito.verify(navController).popBackStack()
-        assertThat(testViewModel.selectedImageUrl.getOrAwaitValueAndroidTest()).isEqualTo(
-            selectedImageUrl
-        )
+        assertThat(testViewModel.selectedImageUrl.getOrAwaitValueAndroidTest()).isEqualTo(selectedImageUrl)
 
     }
 }
