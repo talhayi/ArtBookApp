@@ -29,8 +29,6 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class ArtDetailsFragmentTest {
 
-    private lateinit var viewModel: ArtViewModel
-
     @get: Rule
     var hiltRule = HiltAndroidRule(this)
 
@@ -41,19 +39,19 @@ class ArtDetailsFragmentTest {
     lateinit var fragmentFactory: ArtFragmentFactory
 
     @Before
-    fun setup(){
+    fun setup() {
         hiltRule.inject()
     }
 
     @Test
-    fun testNavigationFromArtDetailsToImageAPI(){
+    fun testNavigationFromArtDetailsToImageAPI() {
 
         val navController = Mockito.mock(NavController::class.java)
 
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
-        ){
-            Navigation.setViewNavController(requireView(),navController)
+        ) {
+            Navigation.setViewNavController(requireView(), navController)
         }
 
         onView(withId(R.id.artImageView)).perform(click())
@@ -62,36 +60,37 @@ class ArtDetailsFragmentTest {
         )
 
     }
+
     @Test
-    fun testOnBackPressed(){
+    fun testOnBackPressed() {
 
         val navController = Mockito.mock(NavController::class.java)
 
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
-        ){
-            Navigation.setViewNavController(requireView(),navController)
+        ) {
+            Navigation.setViewNavController(requireView(), navController)
         }
         Espresso.pressBack()
         verify(navController).popBackStack()
     }
 
     @Test
-    fun testSave(){
+    fun testSave() {
 
         val testViewModel = ArtViewModel(FakeArtRepositoryTest())
         launchFragmentInHiltContainer<ArtDetailsFragment>(
             factory = fragmentFactory
 
-        ){
-            viewModel = testViewModel
+        ) {
+            (this as ArtDetailsFragment).viewModel = testViewModel
         }
         onView(withId(R.id.nameText)).perform(replaceText("Mona Lisa"))
         onView(withId(R.id.artistText)).perform(replaceText("Da Vinci"))
         onView(withId(R.id.yearText)).perform(replaceText("1500"))
         onView(withId(R.id.saveButton)).perform(click())
         assertThat(testViewModel.artList.getOrAwaitValueAndroidTest()).contains(
-            Art("Mona Lisa","Da Vinci",1500,"")
+            Art("Mona Lisa", "Da Vinci", 1500, "")
         )
     }
 }
