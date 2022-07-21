@@ -28,9 +28,6 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class ImageApiFragmentTest {
 
-    private lateinit var viewModel: ArtViewModel
-    private lateinit var imageRecyclerAdapter: ImageRecyclerAdapter
-
     @get: Rule
     var hiltRule = HiltAndroidRule(this)
 
@@ -56,7 +53,7 @@ class ImageApiFragmentTest {
             factory = fragmentFactory
         ){
             Navigation.setViewNavController(requireView(),navController)
-            viewModel = testViewModel
+            (this as ImageApiFragment).viewModel = testViewModel
             imageRecyclerAdapter.images = listOf(selectedImageUrl)
         }
         Espresso.onView(withId(R.id.imageRecyclerView)).perform(

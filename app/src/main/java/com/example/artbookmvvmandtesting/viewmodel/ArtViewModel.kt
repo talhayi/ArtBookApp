@@ -45,10 +45,10 @@ class ArtViewModel @Inject constructor(
         selectedImage.postValue(url)
     }
 
-    fun deleteArt(art: Art) = viewModelScope.launch {
+    fun deleteArt(art: Art) = CoroutineScope(Dispatchers.IO).launch {
         repository.deleteArt(art)
     }
-//CoroutineScope(Dispatchers.IO) - viewModelScope
+
     fun insertArt(art: Art) =CoroutineScope(Dispatchers.IO).launch {
         repository.insertArt(art)
     }

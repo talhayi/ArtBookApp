@@ -5,6 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -28,8 +29,6 @@ import javax.inject.Inject
 @HiltAndroidTest
 @ExperimentalCoroutinesApi
 class ArtDetailsFragmentTest {
-
-    private lateinit var viewModel: ArtViewModel
 
     @get: Rule
     var hiltRule = HiltAndroidRule(this)
@@ -84,12 +83,12 @@ class ArtDetailsFragmentTest {
             factory = fragmentFactory
 
         ){
-            viewModel = testViewModel
+            (this as ArtDetailsFragment).viewModel = testViewModel
         }
         onView(withId(R.id.nameText)).perform(replaceText("Mona Lisa"))
         onView(withId(R.id.artistText)).perform(replaceText("Da Vinci"))
         onView(withId(R.id.yearText)).perform(replaceText("1500"))
-        onView(withId(R.id.saveButton)).perform(click())
+        onView(withId(R.id.saveButton)).perform(ViewActions.closeSoftKeyboard()).perform(click())
         assertThat(testViewModel.artList.getOrAwaitValueAndroidTest()).contains(
             Art("Mona Lisa","Da Vinci",1500,"")
         )
