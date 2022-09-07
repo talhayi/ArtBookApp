@@ -1,4 +1,4 @@
-- #### This project is written with Kotlin. MVVM architecture is used.
+- #### MVVM architecture is used.
 - #### I developed this art book application using the API offered at Pixabay. When we log into the application, we first encounter a button on the HomePage. When we click this button, we come to the page where we will add the details. When you click on the image it directs the images from the api to the page we will search and select. After entering the information of the selected image, we save it. The images we saved are listed on the homepage.
 
 ## Important Libraries in Project
